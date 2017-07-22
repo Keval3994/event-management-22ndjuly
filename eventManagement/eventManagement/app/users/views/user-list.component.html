@@ -1,0 +1,27 @@
+<table class="table">
+       <thead>
+           <tr>
+               <th>user Id</th>
+               <th>Name</th>
+               <th>UserName</th>
+               <th>email</th>
+              <th>Address</th>
+              <th>Company</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr *ngFor="let user of userList ">
+               <td [innerHTML]="user.id "></td>
+              <td [innerHTML]="user.name"></td>
+              <td [innerHTML]="user.username"></td>
+              <td [innerHTML]="user.email"></td>
+              <td [innerHTML] ="user.address.street+user.address.suite"></td>
+              <td [innerHTML]="user.company.name"></td>
+               <td> <button class="btn btn-default" (click)="getUserDetails(user)"> Show Details </button> </td>
+           </tr>
+       </tbody>
+   </table>
+
+   <div>
+      <user-details [selectedUserDetails]="selectedUser">Loading</user-details>
+   </div>

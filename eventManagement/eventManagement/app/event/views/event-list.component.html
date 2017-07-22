@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 ></h1>
+    <hr/>
+
+    <hr/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event Code</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Fees</th>
+                <th>Details</th>
+                <th> Show Details </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let event of events ">
+                <td [innerHTML]="event.eventCode | lowercase"></td>
+                <td [innerHTML]="event.eventName | uppercase"></td>
+                <td [innerHTML]="event.startDate | date"></td>
+                <td [innerHTML]="event.fees | currency: 'INR':true"></td>
+                <td [innerHTML]="event.description"></td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+</div>

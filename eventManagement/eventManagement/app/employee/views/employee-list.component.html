@@ -1,0 +1,40 @@
+<h1 style="text-align:center">employee-list</h1>
+
+<hr/>
+
+<div class="container">
+
+
+    <hr/>
+    <table class="table">
+        <caption>Employees Data</caption>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Address</th>
+                <th>Salary</th>
+                <th>Details</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees ">
+                <td [innerHTML]="employee.employeeId "></td>
+                <td [innerHTML]="employee.employeeName | uppercase"></td>
+                <td [innerHTML]="employee.employeeAddress" ></td>
+                <td [innerHTML]="employee.salary |currency: 'INR':true"></td>
+                <td>
+                  <button class=".btn .btn-default" (click)="selectedEmployee(employee)">Show Details</button></td>
+  </tr>
+        </tbody>
+    </table>
+    <hr/>
+</div>
+<hr/>
+<div *ngIf="selectedSingleEmployee">
+      <employee-details [employee]='selectedSingleEmployee'></employee-details>
+      <button (click)="closeTheDetails()">
+            close the details
+      </button>
+</div>

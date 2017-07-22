@@ -1,0 +1,30 @@
+import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {HttpModule} from "@angular/http";
+
+// Componets
+import {AppComponent} from './app.component';
+import {EventListComponent} from './events/components/events-list-component';
+import {EventDetailsComponent} from './events/components/event-details-component';
+import {PostListComponent} from './jsonplaceholder/components/posts-list-components';
+import {EventsMenuComponent} from './navigation/components/events-menu-component';
+
+/// Pipes
+import {FirstLetterCapital} from  './events/pipes/first-letter-capital-pipe';
+import {FilterBy} from  './events/pipes/filter-by-pipe';
+
+//Services
+import {EventsService} from './events/services/events.service';
+import {PostsService} from './jsonplaceholder/services/posts.service';
+
+@NgModule({
+    imports:[BrowserModule,FormsModule,HttpModule], /// Other modules
+    declarations:[AppComponent,EventListComponent,EventDetailsComponent,PostListComponent,EventsMenuComponent,FirstLetterCapital,FilterBy], // Pipes, directives, components
+    exports:[],  //what u can access out side the module
+    providers:[EventsService,PostsService], // Services
+    bootstrap:[AppComponent] /// Root componet name
+})
+export class AppModule{
+
+}
